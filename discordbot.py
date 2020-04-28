@@ -20,7 +20,7 @@ async def on_message(message):
     await message.channel.send("おい")
 
 @bot.command()
-async def search(ctx,name):
-    await ctx.send(name)
+async def ping(ctx):
+    await ctx.send("pong")
 
 bot.run(token)
