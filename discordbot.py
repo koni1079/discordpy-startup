@@ -13,7 +13,7 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 
-@bot.()
+@bot.event()
 async def on_message(message):
     if message.author.bot:
         return
