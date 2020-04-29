@@ -1,6 +1,4 @@
-i=15
-
-"""import requests
+import requests
 from bs4 import BeautifulSoup
 import sys
 import kaiseki
@@ -150,4 +148,3 @@ def search_author(book_author):
         return False
 
     return serched_list
-"""
