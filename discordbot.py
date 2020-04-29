@@ -1,8 +1,8 @@
 # インストールした discord.py を読み込む
 import discord
-#import web_sample
-#import kaiseki
-#import yahoo_search
+import web_sample
+import kaiseki
+import yahoo_search
 from discord.ext import commands
 import os
 import traceback
