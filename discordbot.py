@@ -8,7 +8,7 @@ import os
 import traceback
 
 # 自分のBotのアクセストークンに置き換えてください
-TOKEN = "Njc3MDQ4NzQwNjY5OTQ3OTA3.Xp8FOw.NslTgZa7of-ovRDlHu1kuaTgt2I"#os.environ['DISCORD_BOT_TOKEN']
+TOKEN = os.environ['DISCORD_BOT_TOKEN']
 server_admin = "koni"
 # 接続に必要なオブジェクトを生成
 bot = commands.Bot(command_prefix='/')
