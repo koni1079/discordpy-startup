@@ -1,8 +1,8 @@
 # インストールした discord.py を読み込む
 import discord
-import web_sample
-import kaiseki
-import yahoo_search
+#import web_sample
+#import kaiseki
+#import yahoo_search
 from discord.ext import commands
 import os
 import traceback
@@ -21,16 +21,14 @@ menber_authority = []
 @bot.event
 async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
-    web_sample.setup_book()
+    #web_sample.setup_book()
     #yahoo_search.setup()
-    #CHANNEL_ID = 677051725412171776 # 任意のチャンネルID(int)
     channel = bot.get_channel(CHANNEL_ID)
     config = 0
     menber_list = [member.display_name for member in bot.get_all_members()]   
     menber_list.remove("koni_book")
     for i in menber_list:
         menber_authority.append([i,0,0])
-    #await channel.send(menber_authority)
     await channel.send("ログインしました")
 
 # メッセージ受信時に動作する処理
@@ -45,11 +43,9 @@ async def on_message(message):
         group = message.author.guild_permissions.administrator
     except:
         pass
-    #print(kaiseki.analysis(message.content))
     if group:
         if  message.author.name == server_admin:
             if message.content == "/end":
-                #await message.channel.send(menber_authority)
                 await bot.logout()
             elif command != 0:
                 hitflag = 0
@@ -83,6 +79,7 @@ async def on_message(message):
             elif message.content == "/private":
                 command = 4
                 await message.channel.send("誰の検索結果をプライベートにしますか？")
+    """
     else:
         book_data = web_sample.search(kaiseki.analysis(message.content))
         adultflag = 0
@@ -115,6 +112,6 @@ async def on_message(message):
         else:
             await message.channel.send("ありません")
     
-
+    """
 # Botの起動とDiscordサーバーへの接続
 bot.run(TOKEN)
