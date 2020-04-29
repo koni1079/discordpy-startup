@@ -1,4 +1,6 @@
-import requests
+i=15
+
+"""import requests
 from bs4 import BeautifulSoup
 import sys
 import kaiseki
@@ -148,40 +150,4 @@ def search_author(book_author):
         return False
 
     return serched_list
-    """
-    while True:
-        result=0
-        #print("調べたい本はなあに？")
-        #book_name=input()
-
-        for i in book_list:
-            #l_in = [s for s in i if book_name in s]
-            #if l_in != []:
-            if book_name in i[0]: #i[0]タイトル検索 i[1]日付検索 i[2]著者検索
-                print(i[0])
-                print("著者:"+i[2])
-                print(i[1]+"日発売です。")
-                print()
-                result=1
-
-        if result != 1:
-            print("ありません。")
-        print("終わりますか？ はい/いいえ")
-        end=input()
-        if end == "はい":
-            print("ありがとうございました。")
-            break
-    """
-        #print(tag.text)
-    #if(tag.text=="ドリルムラタ"):
-        #print(tag.text)
-    #print(title.splitlines())
-
-#print(data.prettify())
-#print(data.find_all(string="コミックス"))
-#print(data.span.string)
-
-'''
-for i in data.select("h3"):
-    print(i.getText())
-'''
+"""
