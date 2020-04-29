@@ -46,7 +46,8 @@ async def on_message(message):
     if group:
         if  message.author.name == server_admin:
             if message.content == "/end":
-                await bot.logout()
+                #await bot.logout()
+                await message.channel.send("そのコマンドは禁止されています")
             elif command != 0:
                 hitflag = 0
                 for i in menber_authority:
