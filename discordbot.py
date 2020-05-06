@@ -85,7 +85,7 @@ async def on_message(message):
     
     else:
         for token in t.tokenize(message.content):
-            print(token)
+            await message.channel.send(token)
     """
     else:
         book_data = web_sample.search(kaiseki.analysis(message.content))
