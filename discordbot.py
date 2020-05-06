@@ -17,6 +17,7 @@ CHANNEL_ID = 677051725412171776 # 任意のチャンネルID(int)
 command = 0
 menber_authority = []
 #channel = client.get_channel(CHANNEL_ID)
+t=Tokenizer()
 
 # 起動時に動作する処理
 @bot.event
@@ -81,6 +82,10 @@ async def on_message(message):
             elif message.content == "/private":
                 command = 4
                 await message.channel.send("誰の検索結果をプライベートにしますか？")
+    
+    else:
+        for token in t.tokenize(message.content):
+            print(token)
     """
     else:
         book_data = web_sample.search(kaiseki.analysis(message.content))
