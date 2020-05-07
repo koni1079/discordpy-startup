@@ -17,7 +17,6 @@ CHANNEL_ID = 677051725412171776 # 任意のチャンネルID(int)
 command = 0
 menber_authority = []
 #channel = client.get_channel(CHANNEL_ID)
-t=Tokenizer()
 
 # 起動時に動作する処理
 @bot.event
