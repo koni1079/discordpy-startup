@@ -3,7 +3,7 @@ import discord
 #import web_sample
 #import kaiseki
 #import yahoo_search
-from janome.tokenizer import Tokenizer
+#from janome.tokenizer import Tokenizer
 from discord.ext import commands
 import os
 import traceback
