@@ -1,7 +1,7 @@
 # インストールした discord.py を読み込む
 import discord
 #import web_sample
-#import kaiseki
+import kaiseki
 #import yahoo_search
 #from janome.tokenizer import Tokenizer
 from discord.ext import commands
@@ -84,8 +84,7 @@ async def on_message(message):
                 await message.channel.send("誰の検索結果をプライベートにしますか？")
     
     else:
-        for token in t.tokenize(message.content):
-            await message.channel.send(token)
+        await message.channel.send(kaiseki.analysis(message.content))
     """
     else:
         book_data = web_sample.search(kaiseki.analysis(message.content))
