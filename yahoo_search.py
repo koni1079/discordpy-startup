@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import chromedriver_binary
-
+"""
 global driver
 
 def setup():
@@ -30,12 +30,13 @@ def search(title):
     #print("----------------ここからurl----------------")
     #print(url)
     #print("----------------ここまでurl----------------")
-    """
-    source=driver.page_source
-    print("----------------ここからソース----------------")
-    print(source)
-    print("----------------ここまでソース----------------")
-    """
+    
+    #source=driver.page_source
+    #print("----------------ここからソース----------------")
+    #print(source)
+    #print("----------------ここまでソース----------------")
+    
     #driver.save_screenshot("search_results.png")
     driver.quit()
     return url
+    """
