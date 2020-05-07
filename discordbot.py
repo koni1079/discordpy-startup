@@ -1,9 +1,8 @@
 # インストールした discord.py を読み込む
 import discord
 #import web_sample
-import kaiseki
-#import yahoo_search
-#from janome.tokenizer import Tokenizer
+#import kaiseki #解決
+import yahoo_search
 from discord.ext import commands
 import os
 import traceback
