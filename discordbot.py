@@ -2,7 +2,7 @@
 import discord
 #import web_sample
 #import kaiseki #解決
-import yahoo_search
+#import yahoo_search
 from discord.ext import commands
 import os
 import traceback
