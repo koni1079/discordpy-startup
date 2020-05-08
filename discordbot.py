@@ -85,7 +85,7 @@ async def on_message(message):
     else:
         await message.channel.send("検索中")
         book_data = search_book.search(kaiseki.analysis(message.content))
-        await message.channel.send(book_data)
+        await message.channel.send("検索終了")
         adultflag = 0
         minorflag = 0
         message_status = [i for i in menber_authority if message.author.name in i]
