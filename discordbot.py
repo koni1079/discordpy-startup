@@ -21,7 +21,7 @@ menber_authority = []
 @bot.event
 async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
-    #web_sample.setup_book()
+    search_book.setup_list()
     #yahoo_search.setup()
     channel = bot.get_channel(CHANNEL_ID)
     config = 0
