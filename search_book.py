@@ -15,6 +15,7 @@ def setup_list():
 def search(book):
     if book[0] == 0:
         book.pop(0)
+        return book_list
         return search_title(book)
     elif book[0] == 1:
         book.pop(0)
