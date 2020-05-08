@@ -1,6 +1,6 @@
 # インストールした discord.py を読み込む
 import discord
-#import web_sample
+import search_book
 import kaiseki #解決
 #import yahoo_search
 from discord.ext import commands
@@ -81,11 +81,9 @@ async def on_message(message):
                 command = 4
                 await message.channel.send("誰の検索結果をプライベートにしますか？")
     
+    
     else:
-        await message.channel.send(kaiseki.analysis(message.content))
-    """
-    else:
-        book_data = web_sample.search(kaiseki.analysis(message.content))
+        book_data = search_book.search(kaiseki.analysis(message.content))
         adultflag = 0
         minorflag = 0
         message_status = [i for i in menber_authority if message.author.name in i]
@@ -96,13 +94,15 @@ async def on_message(message):
                     await message.channel.send(book[0])
                     await message.channel.send("著者:"+book[2])
                     await message.channel.send(book[1]+"日発売です")
-                    minorflag = 1
+                    minorflag = 1     
                     if len(book_data) == 1:
+                        """
                         try:
                             #await message.channel.send("検索中")
                             await message.channel.send(yahoo_search.search(book[0]))
                         except:
                             pass
+                        """
                         if message_status[2] != 1:
                             channel = bot.get_channel(CHANNEL_ID)
                             await channel.send(message.author.name+"が'"+book[0]+"'を欲しがっています")
@@ -116,6 +116,6 @@ async def on_message(message):
         else:
             await message.channel.send("ありません")
     
-    """
+    
 # Botの起動とDiscordサーバーへの接続
 bot.run(TOKEN)
