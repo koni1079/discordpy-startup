@@ -12,6 +12,9 @@ def setup_list():
         book_list.append(line)
     f.close()
 
+def test():
+    return book_list[-1]
+    
 def search(book):
     if book[0] == 0:
         book.pop(0)
