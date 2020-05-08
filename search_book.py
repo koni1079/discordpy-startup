@@ -11,9 +11,6 @@ def setup_list():
         line = line.split(",")
         book_list.append(line)
     f.close()
-
-def test():
-    return book_list[-1]
     
 def search(book):
     if book[0] == 0:
