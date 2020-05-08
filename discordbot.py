@@ -83,6 +83,7 @@ async def on_message(message):
     
     
     else:
+        await message.channel.send(search_book.test())
         await message.channel.send("検索中")
         book_data = search_book.search(kaiseki.analysis(message.content))
         adultflag = 0
