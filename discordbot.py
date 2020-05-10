@@ -2,6 +2,7 @@
 import discord
 import search_book
 import kaiseki #解決
+from datetime import datetime
 #import yahoo_search
 from discord.ext import commands
 import os
