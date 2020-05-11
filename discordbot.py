@@ -97,9 +97,15 @@ async def on_message(message):
             elif message.content == "/private":
                 command = 4
                 await message.channel.send("誰の検索結果をプライベートにしますか？")
+            elif message.content == "/alarm":
+                await message.channel.send(alarm_list)
     
     elif maybe == 1:
-        await message.channel.send(maybe_alarm)
+        for i,book in enumerate(maybe_alarm):
+            if message.author.id == book[0]:
+                if message.content == "はい":
+                    alarm_list.append(book)
+                maybe_alarm.pop(0)
     
     else:
         await message.channel.send("検索中")
@@ -107,10 +113,13 @@ async def on_message(message):
         await message.channel.send("検索終了")
         adultflag = 0
         minorflag = 0
+        maybeflag = 0
         message_status = [i for i in menber_authority if message.author.name in i]
         message_status = message_status[0]
         if book_data:
             for book in book_data:
+                if len(book) > 3:
+                    book.pop(0)
                 if "（成）" not in book[0] or message_status[1] == 1:
                     await message.channel.send(book[0])
                     await message.channel.send("著者:"+book[2])
@@ -130,6 +139,7 @@ async def on_message(message):
                         """
                         book.insert(0,message.author.id)
                         maybe_alarm.append(book)                        
+                        maybeflag = 1
                     await message.channel.send("------------------------------------------------------------")
                 else:
                     adultflag=1
@@ -137,6 +147,8 @@ async def on_message(message):
                 await message.channel.send("以上です")
             if adultflag == 1:
                 await message.channel.send("あなたに不適切と思われる書籍が含まれていたので表示しませんでした")
+            if maybeflag == 1:
+                await message.channel.send("この本の発売日に連絡しますか？　はい/いいえ")
         else:
             await message.channel.send("ありません")
     
