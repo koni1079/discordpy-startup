@@ -38,11 +38,15 @@ async def on_ready():
 
 @tasks.loop(seconds=60)
 async def loop():
-    nowtime = datetime.now().strftime('%H:%M')
-    if nowtime == '21:18':
-        nowdate = int(datetime.now().strftime('%d'))
-        channel = bot.get_channel(CHANNEL_ID)
-        await channel.send(nowdate)
+    if alarm_list != []:
+        nowtime = datetime.now().strftime('%H:%M')
+        if nowtime == '01:':
+            nowdate = datetime.now().strftime('%d')
+            for i in alarm_list:
+                if i[2] == nowdate:
+                    user = bot.get_user(i[0])
+                    print(type(i[1]))
+                    await user.send("本日は"+i[1]+"の発売日です")
 
 # メッセージ受信時に動作する処理
 @bot.event
