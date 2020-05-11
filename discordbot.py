@@ -40,7 +40,7 @@ async def on_ready():
 async def loop():
     if alarm_list != []:
         nowtime = datetime.now().strftime('%H:%M')
-        if nowtime == '01:':
+        if nowtime == '01:23':
             nowdate = datetime.now().strftime('%d')
             for i in alarm_list:
                 if i[2] == nowdate:
