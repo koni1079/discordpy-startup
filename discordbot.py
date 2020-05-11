@@ -36,8 +36,11 @@ async def on_ready():
 
 @tasks.loop(seconds=60)
 async def loop():
-    channel = bot.get_channel(CHANNEL_ID)
-    await channel.send("あああ")
+    nowtime = datetime.now().strftime('%H:%M')
+    if nowtime == '21:18':
+        nowdate = int(datetime.now().strftime('%d'))
+        channel = bot.get_channel(CHANNEL_ID)
+        await channel.send(nowdate)
 
 # メッセージ受信時に動作する処理
 @bot.event
@@ -112,10 +115,11 @@ async def on_message(message):
                             await message.channel.send(yahoo_search.search(book[0]))
                         except:
                             pass
-                        """
+                        
                         if message_status[2] != 1:
                             channel = bot.get_channel(CHANNEL_ID)
                             await channel.send(message.author.name+"が'"+book[0]+"'を欲しがっています")
+                        """
                     await message.channel.send("------------------------------------------------------------")
                 else:
                     adultflag=1
