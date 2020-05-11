@@ -138,7 +138,7 @@ async def on_message(message):
                             await channel.send(message.author.name+"が'"+book[0]+"'を欲しがっています")
                         """
                         for l in alarm_list:
-                            if len(l) < 4:
+                            if len(l) < 4 or (l[0] == message.author.id and l[1] == book[0]):
                                 maybeflag = 2
                         book.insert(0,message.author.id)
                         maybe_alarm.append(book)                        
