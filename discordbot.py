@@ -5,6 +5,7 @@ import kaiseki #解決
 from datetime import datetime
 #import yahoo_search
 from discord.ext import commands
+from discord.ext import tasks
 import os
 import traceback
 
@@ -31,6 +32,12 @@ async def on_ready():
     for i in menber_list:
         menber_authority.append([i,0,0])
     await channel.send("ログインしました")
+    loop.start()
+
+@tasks.loop(seconds=60)
+async def loop():
+    channel = bot.get_channel(CHANNEL_ID)
+    print(type(channel))
 
 # メッセージ受信時に動作する処理
 @bot.event
