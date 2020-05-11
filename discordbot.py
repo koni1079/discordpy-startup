@@ -37,7 +37,7 @@ async def on_ready():
 @tasks.loop(seconds=60)
 async def loop():
     channel = bot.get_channel(CHANNEL_ID)
-    print(type(channel))
+    await channel.send("あああ")
 
 # メッセージ受信時に動作する処理
 @bot.event
