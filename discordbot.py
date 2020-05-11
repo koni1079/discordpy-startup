@@ -138,12 +138,12 @@ async def on_message(message):
                             await channel.send(message.author.name+"が'"+book[0]+"'を欲しがっています")
                         """
                         for l in alarm_list:
-                            await message.channel.send(l)
                             if len(l) < 4:
                                 maybeflag = 2
-                        book.insert(0,message.author.id)
-                        maybe_alarm.append(book)                        
-                        maybeflag = 1
+                        if maybeflag == 0:
+                            book.insert(0,message.author.id)
+                            maybe_alarm.append(book)                        
+                            maybeflag = 1
                     await message.channel.send("------------------------------------------------------------")
                 else:
                     adultflag=1
