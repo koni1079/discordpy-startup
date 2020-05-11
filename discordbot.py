@@ -137,6 +137,9 @@ async def on_message(message):
                             channel = bot.get_channel(CHANNEL_ID)
                             await channel.send(message.author.name+"が'"+book[0]+"'を欲しがっています")
                         """
+                        for l in alarm_list:
+                            if len(l) < 4:
+                                maybeflag = 2
                         book.insert(0,message.author.id)
                         maybe_alarm.append(book)                        
                         maybeflag = 1
@@ -149,6 +152,8 @@ async def on_message(message):
                 await message.channel.send("あなたに不適切と思われる書籍が含まれていたので表示しませんでした")
             if maybeflag == 1:
                 await message.channel.send("この本の発売日に連絡しますか？　はい/いいえ")
+            if maybeflag == 2:
+                await message.channel.send("この本はすでに登録済みです")
         else:
             await message.channel.send("ありません")
     
