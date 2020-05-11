@@ -17,6 +17,8 @@ bot = commands.Bot(command_prefix='/')
 CHANNEL_ID = 677051725412171776 # 任意のチャンネルID(int)
 command = 0
 menber_authority = []
+maybe_alarm = []
+alarm_list = []
 #channel = client.get_channel(CHANNEL_ID)
 
 # 起動時に動作する処理
@@ -49,6 +51,10 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
+    maybe = 0
+    for i in maybe_alarm:
+        if message.author.id == i[0]:
+            maybe = 1
     group = False
     try:
         group = message.author.guild_permissions.administrator
@@ -92,6 +98,8 @@ async def on_message(message):
                 command = 4
                 await message.channel.send("誰の検索結果をプライベートにしますか？")
     
+    elif maybe == 1:
+        await message.channel.send(maybe_alarm)
     
     else:
         await message.channel.send("検索中")
